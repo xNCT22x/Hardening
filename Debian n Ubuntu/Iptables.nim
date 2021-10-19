@@ -1,5 +1,5 @@
 Installation :
-  apt install iptables-service -y
+  apt install iptables-persistent -y
   
 Basic Usage :
   iptables -A INPUT => Untuk Input Sebuah Rule
@@ -42,4 +42,11 @@ Example :
   
 Prioritas Permission :
   iptables -I INPUT -p tcp --dport 53 -j ACCEPT
-  iptables -I INPUT 2 -p tcp --dport 80 -j ACCEPT   => Rule diatur di urutan ke dua
+  iptables -I INPUT 2 -p tcp --dport 80 -j ACCEPT  => Rule diatur di urutan ke dua
+
+Reset Iptables :
+  iptables -F
+
+Save and Restore Iptables :
+  iptables-save > iptables.conf
+  iptables-restore < iptables.conf
